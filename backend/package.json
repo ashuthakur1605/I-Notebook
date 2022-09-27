@@ -1,0 +1,15 @@
+{
+  "name": "wenotebook",
+  "version": "1.0.0",
+  "description": "This is notebook which you can access anywhere and anytime",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ashu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.2"
+  }
+}
