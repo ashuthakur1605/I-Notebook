@@ -24,17 +24,18 @@ router.post('/createuser', [
 
 ],
   async (req, res) => {
+    let success =false;
     // If there are errors ,return Bad request and the erros
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ success,errors: errors.array() });
     }
     try {
 
       let user = await User.findOne({ email: req.body.email })
       if (user) {
-        return res.status(400).json({ error: "sorry a user with this email already exists" })
+        return res.status(400).json({success, error: "sorry a user with this email already exists" })
       }
       const salt = await bcrypt.genSalt(10);
       const secPass = await bcrypt.hash(req.body.password, salt);
@@ -53,8 +54,8 @@ router.post('/createuser', [
       console.log(authtoken)
 
 
-
-      res.json({ authtoken })
+      success = true
+      res.json({success, authtoken })
     } catch (error) {
       console.error(error.message)
       res.status(500).send("some error occurred");
@@ -70,6 +71,7 @@ router.post('/login', [
 
 
 ], async (req, res) => {
+  let success =false;
   // If there are errors ,return Bad request and the erros
 
   const errors = validationResult(req);
@@ -80,11 +82,13 @@ router.post('/login', [
   try {
     let user = await User.findOne({email})
     if (!user) {
-      return res.status(400).json({ error: "sorry  try to login with correct  credentials" })
+      success = false
+      return res.status(400).json({ success, error: "sorry  try to login with correct  credentials" })
     }
     const passwordCompare = await bcrypt.compare(password,user.password);
     if(!passwordCompare){
-      return res.status(400).json({ error: "sorry  try to login with correct  credentials" })
+      success = false
+      return res.status(400).json({success, error: "sorry  try to login with correct  credentials" })
     }
     const data = {
       user: {
@@ -95,8 +99,8 @@ router.post('/login', [
 
 
 
-
-    res.json({ authtoken })
+    success = true;
+    res.json({success, authtoken })
   }  catch (error) {
     console.error(error.message)
     res.status(500).send("Internal server error");
@@ -105,7 +109,7 @@ router.post('/login', [
 )
 
 
-// Route 3: Get loggedin user detasils using Post "" Login required
+// Route 3: Get loggedin user details using Post "" Login required
 
 
 router.post('/getuser',fetchuser, [

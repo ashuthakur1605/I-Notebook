@@ -1,7 +1,10 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import NoteContext from "../context/notes/NoteContext"
 
 function Noteitem(props) {
-    const { note } = props;
+    const context = useContext(NoteContext)
+    const {deleteNote} = context;
+    const { note, updateNote } = props;
 
     return (
         <div className='col-md-3'>
@@ -9,8 +12,9 @@ function Noteitem(props) {
                 <div className="card-body">
                     <h5 className='card-title'>{note.title}</h5>
                     <p className='card-text'>{note.description}</p>
-                    <i className="fas fa-trash mx-3"></i>
-                    <i className="fas fa-edit"></i>
+                    <i className="fas fa-trash mx-3" onClick={()=>{deleteNote(note._id)
+                        props.showAlert("Deleted successfully","success")}}></i>
+                    <i className="fas fa-edit" onClick={()=>{updateNote(note)}}></i>
                     {/* <i className="fa-solid fa-file-pen"></i> */}
                 </div>
             </div>
