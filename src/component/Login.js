@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 
 
 function Login(props) {
   const [credentials, setCredentials] = useState({ email: "", password: "" })
-  let history = useHistory();
+  // let history = useHistory();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch("http://localhost:5000/api/auth/login", {
@@ -20,7 +20,7 @@ function Login(props) {
     if(json.success){
       localStorage.setItem("token" ,json.authtoken);
       props.showAlert("Logged in Successfully to use Wenotebook", "success")
-      history.push("/");
+      // history.push("/");
     }
     else{
       props.showAlert("Invalid Usser" ,"danger")

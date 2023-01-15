@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import NoteContext from "../context/notes/NoteContext"
 import AddNote from './AddNote';
 import Noteitem from './Noteitem';
@@ -8,7 +8,7 @@ import Noteitem from './Noteitem';
 
 export default function Notes(props) {
   const context = useContext(NoteContext)
-  let history = useHistory()
+  // let history = useHistory()
   const { notes, getNotes ,editNote } = context;
   useEffect(() => {
     if(localStorage.getItem('token')){
@@ -16,7 +16,8 @@ export default function Notes(props) {
       getNotes()
     }
     else{
-      history.push("/login")
+      // history.push("/login")
+      //     getNotes()
     }
     // eslint-disable-next-line
   }, [])

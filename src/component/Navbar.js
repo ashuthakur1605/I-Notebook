@@ -15,7 +15,7 @@ export const Navbar = () => {
 
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">wenotebook</Link>
+          <Link className="navbar-brand" to="/">WeNotebook</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -31,8 +31,8 @@ export const Navbar = () => {
 
            {!localStorage.getItem('token')? <form className="d-flex ">
               
-              <Link className="btn btn-primary mx-1" to='/login' role="button">Login</Link>
-              <Link className="btn btn-primary mx-1" to='/singup' role="button">Singup</Link>
+              {/* <Link className="btn btn-primary mx-1" to='/login' role="button">Login</Link>
+              <Link className="btn btn-primary mx-1" to='/singup' role="button">Singup</Link> */}
             </form>:<button onClick={handleLogout} className='btn btn-primary'>Logout</button>}
           </div>
         </div>

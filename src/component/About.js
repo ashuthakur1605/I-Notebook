@@ -5,10 +5,18 @@ import React  from 'react'
 export const About = () => {
  
   
-  return (
+  return (<>
     <h1>
-      This is About  and it is in class 
+      Notebook
 
     </h1>
+    <p> A digital notebook is the digital analog to a paper notebook. It is the space for student inquiry, thinking, brainstorming, reflecting, taking notes, collecting clippings of text, and synthesizing information from disparate online sources.</p>
+  </>
+
+    
+     
+
+     
+    
   )
 }

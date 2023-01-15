@@ -2,7 +2,7 @@
 import './App.css';
 import { Navbar } from './component/Navbar';
 import { Home } from './component/Home';
-import login from './background/login.jpg'
+// import login from './background/login.jpg'
 import { About } from './component/About';
 import { useState } from 'react';
 
@@ -14,8 +14,8 @@ import {
 } from "react-router-dom";
 import NoteState from './context/notes/Notestate';
 import Alert from './component/Alert';
-import Singup from './component/Singup';
-import Login from './component/Login';
+// import Singup from './component/Singup';
+// import Login from './component/Login';
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -30,14 +30,16 @@ function App() {
       }, 1500);
   }
   return (
-    
+   
     
     <NoteState>
 
       <Router>
-        
+     
+      
+
         <Navbar />
-      <div  style={{backgroundImage:`url(${login})` , opacity:1} }>
+      <div  >
         <div className="container " >
         <Alert alert={alert}/>
   
@@ -45,15 +47,18 @@ function App() {
             <Route exact path="/">
               <Home showAlert={showAlert}/>
             </Route>
+            <Route exact path="/WeNotebook">
+              <Home showAlert={showAlert}/>
+            </Route>
             <Route exact path="/about">
               <About />
             </Route>
-            <Route exact path="/login">
+            {/* <Route exact path="/login">
               <Login showAlert={showAlert} />
-            </Route>
-            <Route exact path="/singup">
+            </Route> */}
+            {/* <Route exact path="/singup">
               <Singup showAlert={showAlert} />
-            </Route>
+            </Route> */}
 
           </Switch>
     </div>
