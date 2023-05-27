@@ -14,8 +14,8 @@ import {
 } from "react-router-dom";
 import NoteState from './context/notes/Notestate';
 import Alert from './component/Alert';
-// import Singup from './component/Singup';
-// import Login from './component/Login';
+import Singup from './component/Singup';
+import Login from './component/Login';
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -47,18 +47,18 @@ function App() {
             <Route exact path="/">
               <Home showAlert={showAlert}/>
             </Route>
-            <Route exact path="/WeNotebook">
+            <Route exact path="/I-Notebook">
               <Home showAlert={showAlert}/>
             </Route>
             <Route exact path="/about">
               <About />
             </Route>
-            {/* <Route exact path="/login">
+            <Route exact path="/login">
               <Login showAlert={showAlert} />
-            </Route> */}
-            {/* <Route exact path="/singup">
+            </Route>
+            <Route exact path="/singup">
               <Singup showAlert={showAlert} />
-            </Route> */}
+            </Route>
 
           </Switch>
     </div>

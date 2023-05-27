@@ -19,7 +19,7 @@ function Login(props) {
     console.log(json)
     if(json.success){
       localStorage.setItem("token" ,json.authtoken);
-      props.showAlert("Logged in Successfully to use Wenotebook", "success")
+      props.showAlert("Logged in Successfully to use I-notebook", "success")
       // history.push("/");
     }
     else{
@@ -33,7 +33,7 @@ function Login(props) {
   return (
     <div className='container w-200 p-3' >
     
-    <h2 >Login to continue to wenotebook</h2>
+    <h2 >Login to continue to I-notebook</h2>
     <form  onSubmit={handleSubmit}>
       <div className="mb-3">
         <label htmlFor="email" className="form-label">Email address</label>
